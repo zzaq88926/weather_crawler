@@ -1,54 +1,22 @@
 # 🌊 台灣近海海象觀測地圖 (Taiwan Sea Weather Map)
 
-這是一個使用 Streamlit 建構的互動式網頁應用程式，可以即時爬取中央氣象局 (CWA) 的海面天氣預報資料 (F-A0012-001)，並在地圖上視覺化顯示各地點的風速、浪高及天氣狀況。
+歡迎來到台灣近海海象觀測地圖！這是一個專為關注台灣海域天氣狀況的使用者設計的即時資訊平台。透過直觀的互動式地圖，您可以輕鬆掌握全台各地的海面天氣預報，包括風速、浪高及天氣現象。
 
-## ✨ 功能特色
+🔗 **[點擊這裡前往應用程式](https://weathercrawler-fhjesnaj7t8zhzvyu2pcbq.streamlit.app/)**
 
-- **即時爬蟲**: 自動從 CWA Open API 獲取最新資料。
-- **互動地圖**: 使用 Plotly Mapbox 顯示全台近海觀測點，滑鼠懸停可查看詳細數據。
-- **資料庫整合**: 使用 SQLite 儲存歷史資料，避免重複請求 API。
-- **自動更新**: 網頁開啟時自動檢查並更新資料。
+## ✨ 主要功能
 
-## 🛠️ 安裝與執行
+*   **即時海象資訊**：自動同步中央氣象局 (CWA) 最新資料，掌握第一手海況。
+*   **直觀地圖顯示**：全台近海觀測點一目了然，以顏色區分天氣狀況，視覺化呈現。
+*   **詳細數據查詢**：滑鼠懸停於地圖上的觀測點，即可查看詳細的風速、浪高及天氣描述。
+*   **列表式總覽**：提供完整的數據列表，方便快速比對與瀏覽各地區資訊。
 
-### 1. 安裝套件
+## � 如何使用
 
-請確保您已安裝 Python 3.8+，然後執行以下指令安裝必要套件：
+1.  **瀏覽地圖**：您可以自由縮放或拖曳地圖，查看台灣不同區域的近海狀況。
+2.  **查看詳情**：將滑鼠游標移至地圖上的圓點，會顯示該地點的詳細天氣資訊（如：風速、浪高）。
+3.  **手動更新**：系統會自動抓取資料，若需強制獲取最新數據，可點擊右側欄位的「🔄 手動更新資料」按鈕。
 
-```bash
-pip install -r requirements.txt
-```
+## ℹ️ 資料來源
 
-### 2. 執行應用程式
-
-在終端機執行以下指令啟動 Streamlit：
-
-```bash
-streamlit run streamlit_app.py
-```
-
-啟動後，瀏覽器會自動開啟應用程式 (預設網址: `https://weathercrawler-fhjesnaj7t8zhzvyu2pcbq.streamlit.app/`)。
-
-## 📂 專案結構
-
-- `streamlit_app.py`: 主程式，負責 UI 顯示與地圖繪製。
-- `weather_crawler.py`: 爬蟲模組，負責抓取 API 資料、解析並存入資料庫。
-- `data.db`: SQLite 資料庫檔案 (自動產生)。
-- `requirements.txt`: 專案依賴套件列表。
-
-## 🚀 部署至 Streamlit Cloud
-
-本專案已準備好部署至 Streamlit Cloud。
-
-1.  將本專案上傳至 GitHub Repository。
-2.  前往 [Streamlit Cloud](https://streamlit.io/cloud)。
-3.  點擊 "New app"。
-4.  選擇您的 Repository、Branch (通常是 `main`)，並將 "Main file path" 設為 `streamlit_app.py`。
-5.  點擊 "Deploy"！
-
-Streamlit Cloud 會自動讀取 `requirements.txt` 並安裝所需套件。
-
-## ⚠️ 注意事項
-
-- 本專案使用 CWA 開放資料 API，請遵守相關使用規範。
-- 為了避免 SSL 憑證錯誤，爬蟲腳本中已禁用 SSL 驗證 (`verify=False`)。
+本應用程式資料來源為 **交通部中央氣象局 (CWA) 開放資料平台** (資料代碼：F-A0012-001)，僅供參考，實際海象請以氣象局官方發布為準。
